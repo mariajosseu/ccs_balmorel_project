@@ -1,0 +1,18 @@
+.testenv/*
+dist/*
+src/*
+!src/pybalmorel
+examples/files/DE.inc
+__pycache__
+output
+config
+build
+_build
+
+# This one is necessary to do tests
+!tests/output/.keepoutputfolder
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+examples/Balmorel
+examples/Balmorel_legacy
