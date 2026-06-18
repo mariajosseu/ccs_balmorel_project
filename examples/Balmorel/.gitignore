@@ -1,5 +1,4 @@
 **/*.~*
-**/*.gdx
 **/*.gsp
 /base/data/.gitignore
 /base/data/README.md
