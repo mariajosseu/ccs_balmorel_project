@@ -1,0 +1,773 @@
+--- Job Balmorel.gms Start 06/18/26 17:12:25 53.5.1 f2e5fac3 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\53\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input "D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\03Project_NZwCCS\Model\Balmorel.gms"
+    PageSize 0
+    ScrDir "D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\03Project_NZwCCS\Model\225a\"
+    SysDir C:\GAMS\53\
+    LogOption 3
+    AppendLog 1
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: Large MUD - 20 User License                    G251106+0003Ac-GEN
+          Technical University of Denmark, Management Engineering    DC8611
+          C:\Users\david\OneDrive\Documenti\GAMS\gamslice.txt
+          556f6a85-f5d8-4c6d
+          v:2                                                              
+          The maintenance period of the license expires on Dec 31, 2026
+System information: 4 physical cores and 8 Gb physical memory detected
+GAMS 53.5.1   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- Balmorel.gms(42) 2 Mb
+--- > balgams.opt(161) 2 Mb
+--- Balmorel.gms(48) 2 Mb
+--- > balopt.opt(1051) 2 Mb
+--- Balmorel.gms(99) 2 Mb
+--- > error1.inc(44) 2 Mb
+--- >> hellolog.inc(120) 2 Mb
+--- > error1.inc(56) 2 Mb
+--- Balmorel.gms(121) 2 Mb
+--- > Balmorelbb4.inc(305) 2 Mb
+--- >> bb4datainc.inc(25) 2 Mb
+--- >>> ACRONYMS.inc(16) 2 Mb
+--- >> bb4datainc.inc(27) 2 Mb
+--- >>> acronymsadditions.inc(11) 2 Mb
+--- >>>> hydrogen_acronymsadditions.inc(3) 2 Mb
+--- >>>>> HYDROGEN_ACRONYMS.inc(2) 2 Mb
+--- >>>> hydrogen_acronymsadditions.inc(4) 2 Mb
+--- >>> acronymsadditions.inc(15) 2 Mb
+--- >> bb4datainc.inc(33) 2 Mb
+--- >>> CCCRRRAAA.inc(109) 3 Mb
+--- >> bb4datainc.inc(36) 3 Mb
+--- >>> cccrrraaaadditions.inc(9) 3 Mb
+--- >> bb4datainc.inc(40) 3 Mb
+--- >>> CCC.inc(5) 3 Mb
+--- >> bb4datainc.inc(43) 3 Mb
+--- >>> cccadditions.inc(8) 3 Mb
+--- >> bb4datainc.inc(47) 3 Mb
+--- >>> RRR.inc(10) 3 Mb
+--- >> bb4datainc.inc(50) 3 Mb
+--- >>> rrradditions.inc(8) 3 Mb
+--- >> bb4datainc.inc(54) 3 Mb
+--- >>> AAA.inc(88) 3 Mb
+--- >> bb4datainc.inc(57) 3 Mb
+--- >>> aaaadditions.inc(9) 3 Mb
+--- >> bb4datainc.inc(61) 3 Mb
+--- >>> CCCRRR.inc(10) 3 Mb
+--- >> bb4datainc.inc(64) 3 Mb
+--- >>> cccrrradditions.inc(8) 3 Mb
+--- >> bb4datainc.inc(68) 3 Mb
+--- >>> RRRAAA.inc(90) 3 Mb
+--- >> bb4datainc.inc(71) 3 Mb
+--- >>> rrraaaadditions.inc(9) 3 Mb
+--- >> bb4datainc.inc(75) 3 Mb
+--- >>> C.inc(5) 3 Mb
+--- >> bb4datainc.inc(77) 3 Mb
+--- >>> cadditions.inc(8) 3 Mb
+--- >> bb4datainc.inc(104) 3 Mb
+--- >>> YYY.inc(2) 3 Mb
+--- >> bb4datainc.inc(109) 3 Mb
+--- >>> SSS.inc(4) 3 Mb
+--- >> bb4datainc.inc(114) 3 Mb
+--- >>> TTT.inc(4) 3 Mb
+--- >> bb4datainc.inc(119) 3 Mb
+--- >>> GROUP.inc(7) 3 Mb
+--- >> bb4datainc.inc(124) 3 Mb
+--- >>> GROUP_AAA.inc(8) 3 Mb
+--- >> bb4datainc.inc(129) 3 Mb
+--- >>> DEUSER.inc(10) 3 Mb
+--- >> bb4datainc.inc(132) 3 Mb
+--- >>> deuseradditions.inc(12) 3 Mb
+--- >> bb4datainc.inc(136) 3 Mb
+--- >>> DHUSER.inc(14) 3 Mb
+--- >> bb4datainc.inc(141) 3 Mb
+--- >>> FFF.inc(112) 3 Mb
+--- >> bb4datainc.inc(144) 3 Mb
+--- >>> fffadditions.inc(1) 3 Mb
+--- >>>> hydrogen_fffadditions.inc(3) 3 Mb
+--- >>>>> HYDROGEN_FFF.inc(10) 3 Mb
+--- >>>> hydrogen_fffadditions.inc(4) 3 Mb
+--- >>> fffadditions.inc(4) 3 Mb
+--- >> bb4datainc.inc(148) 3 Mb
+--- >>> FDATASET.inc(9) 3 Mb
+--- >> bb4datainc.inc(153) 3 Mb
+--- >>> FDATA.inc(56) 3 Mb
+--- >> bb4datainc.inc(156) 3 Mb
+--- >>> fdataadditions.inc(1) 3 Mb
+--- >>>> hydrogen_fdataadditions.inc(3) 3 Mb
+--- >>>>> HYDROGEN_FDATA.inc(11) 3 Mb
+--- >>>> hydrogen_fdataadditions.inc(4) 3 Mb
+--- >>> fdataadditions.inc(3) 3 Mb
+--- >> bb4datainc.inc(159) 3 Mb
+--- >>> GGG.inc(1323) 3 Mb
+--- >> bb4datainc.inc(163) 3 Mb
+--- >>> gggadditions.inc(6) 3 Mb
+--- >>>> hydrogen_gggadditions.inc(3) 3 Mb
+--- >>>>> HYDROGEN_GGG.inc(288) 3 Mb
+--- >>>> hydrogen_gggadditions.inc(4) 3 Mb
+--- >>> gggadditions.inc(9) 3 Mb
+--- >> bb4datainc.inc(167) 3 Mb
+--- >>> GDATASET.inc(63) 3 Mb
+--- >> bb4datainc.inc(172) 3 Mb
+--- >>> TECH_GROUP.inc(27) 3 Mb
+--- >> bb4datainc.inc(175) 3 Mb
+--- >>> tech_groupadditions.inc(4) 3 Mb
+--- >> bb4datainc.inc(179) 3 Mb
+--- >>> TECH_GROUP_VALUE.inc(25) 3 Mb
+--- >> bb4datainc.inc(182) 3 Mb
+--- >>> tech_group_valueadditions.inc(4) 3 Mb
+--- >> bb4datainc.inc(186) 3 Mb
+--- >>> TECHGROUP_DEUSER.inc(5) 3 Mb
+--- >> bb4datainc.inc(191) 3 Mb
+--- >>> SUBTECH_GROUP.inc(25) 3 Mb
+--- >> bb4datainc.inc(196) 3 Mb
+--- >>> SUBTECH_GROUP_VALUE.inc(25) 3 Mb
+--- >> bb4datainc.inc(200) 3 Mb
+--- >>> G.inc(1272) 3 Mb
+--- >> bb4datainc.inc(204) 3 Mb
+--- >>> gadditions.inc(6) 3 Mb
+--- >>>> hydrogen_gadditions.inc(3) 3 Mb
+--- >>>>> HYDROGEN_G.inc(290) 3 Mb
+--- >>>> hydrogen_gadditions.inc(4) 3 Mb
+--- >>> gadditions.inc(9) 3 Mb
+--- >> bb4datainc.inc(210) 3 Mb
+--- >>> setdeclare.inc(28) 3 Mb
+--- >>>> CCS_setdeclare.inc(4) 3 Mb
+--- >>>>> CCS_CCS_G.inc(115) 3 Mb
+--- >>>> CCS_setdeclare.inc(6) 3 Mb
+--- >>> setdeclare.inc(33) 3 Mb
+--- >> bb4datainc.inc(211) 3 Mb
+--- >>> setdefine.inc(20) 3 Mb
+--- >>> setdefine.inc(42) 3 Mb
+--- >>>> CCS_setdefine.inc(3) 3 Mb
+--- >>> setdefine.inc(47) 3 Mb
+--- >> bb4datainc.inc(218) 3 Mb
+--- >>> GDATA.inc(1286) 5 Mb
+--- >> bb4datainc.inc(222) 5 Mb
+--- >>> gdataadditions.inc(13) 5 Mb
+--- >>>> hydrogen_gdataadditions.inc(3) 5 Mb
+--- >>>>> HYDROGEN_GDATA.inc(290) 5 Mb
+--- >>>> hydrogen_gdataadditions.inc(4) 5 Mb
+--- >>> gdataadditions.inc(18) 5 Mb
+--- >> bb4datainc.inc(238) 5 Mb
+--- >>> HYRSMAXVOL_G.inc(848) 5 Mb
+--- >> bb4datainc.inc(243) 5 Mb
+--- >>> HYRSDATASET.inc(8) 5 Mb
+--- >> bb4datainc.inc(248) 5 Mb
+--- >>> DF_QP.inc(5) 5 Mb
+--- >> bb4datainc.inc(253) 5 Mb
+--- >>> EMIPOLSET.inc(9) 5 Mb
+--- >> bb4datainc.inc(258) 5 Mb
+--- >>> AGKN.inc(572) 5 Mb
+--- >> bb4datainc.inc(263) 5 Mb
+--- >>> agknadditions.inc(6) 5 Mb
+--- >>>> CCS_agknadditions.inc(5) 5 Mb
+--- >>>>> CCS_AGKN.inc(1) 5 Mb
+--- >>>> CCS_agknadditions.inc(6) 5 Mb
+--- >>> agknadditions.inc(7) 5 Mb
+--- >>>> hydrogen_agknadditions.inc(3) 5 Mb
+--- >>>>> HYDROGEN_AGKN.inc(72) 5 Mb
+--- >>>> hydrogen_agknadditions.inc(4) 5 Mb
+--- >>> agknadditions.inc(14) 5 Mb
+--- >> bb4datainc.inc(266) 5 Mb
+--- >>> Y.inc(11) 5 Mb
+--- >> bb4datainc.inc(275) 5 Mb
+--- >>> S.inc(6) 5 Mb
+--- >> bb4datainc.inc(280) 5 Mb
+--- >>> T.inc(7) 5 Mb
+--- >> bb4datainc.inc(286) 5 Mb
+--- >>> YVALUE.inc(12) 5 Mb
+--- >> bb4datainc.inc(291) 5 Mb
+--- >>> TWORKDAY.inc(1) 5 Mb
+--- >> bb4datainc.inc(296) 5 Mb
+--- >>> TWEEKEND.inc(1) 5 Mb
+--- >> bb4datainc.inc(403) 5 Mb
+--- >>> GKFX.inc(593) 5 Mb
+--- >> bb4datainc.inc(406) 5 Mb
+--- >>> gkfxadditions.inc(5) 5 Mb
+--- >>>> hydrogen_gkfxadditions.inc(3) 5 Mb
+--- >>>>> HYDROGEN_GKFX.inc(22) 5 Mb
+--- >>>> hydrogen_gkfxadditions.inc(4) 5 Mb
+--- >>> gkfxadditions.inc(14) 5 Mb
+--- >> bb4datainc.inc(411) 5 Mb
+--- >>> FMAXINVEST.inc(5) 5 Mb
+--- >> bb4datainc.inc(416) 5 Mb
+--- >>> FMAXINVESTNA.inc(2) 5 Mb
+--- >> bb4datainc.inc(421) 5 Mb
+--- >>> DISLOSS_E.inc(11) 5 Mb
+--- >> bb4datainc.inc(426) 5 Mb
+--- >>> DISLOSS_E_AG.inc(57) 5 Mb
+--- >> bb4datainc.inc(429) 5 Mb
+--- >>> disloss_e_agadditions.inc(17) 5 Mb
+--- >> bb4datainc.inc(433) 5 Mb
+--- >>> DISLOSS_H.inc(3) 5 Mb
+--- >> bb4datainc.inc(438) 5 Mb
+--- >>> DISCOST_E.inc(10) 5 Mb
+--- >> bb4datainc.inc(443) 5 Mb
+--- >>> DISCOST_H.inc(18) 5 Mb
+--- >> bb4datainc.inc(448) 5 Mb
+--- >>> FKPOT.inc(36) 5 Mb
+--- >> bb4datainc.inc(453) 5 Mb
+--- >>> TECHGROUPKPOT.inc(31) 5 Mb
+--- >> bb4datainc.inc(458) 5 Mb
+--- >>> SUBTECHGROUPKPOT.inc(117) 5 Mb
+--- >> bb4datainc.inc(461) 5 Mb
+--- >>> subtechgroupkpotadditions.inc(15) 5 Mb
+--- >> bb4datainc.inc(466) 5 Mb
+--- >>> FKMIN.inc(4) 5 Mb
+--- >> bb4datainc.inc(472) 5 Mb
+--- >>> FKMAX.inc(4) 5 Mb
+--- >> bb4datainc.inc(478) 5 Mb
+--- >>> FKEQ.inc(4) 5 Mb
+--- >> bb4datainc.inc(484) 5 Mb
+--- >>> FKMINNA.inc(4) 5 Mb
+--- >> bb4datainc.inc(489) 5 Mb
+--- >>> FKMAXNA.inc(4) 5 Mb
+--- >> bb4datainc.inc(494) 5 Mb
+--- >>> FKEQNA.inc(4) 5 Mb
+--- >> bb4datainc.inc(499) 5 Mb
+--- >>> FGEMIN.inc(5) 5 Mb
+--- >> bb4datainc.inc(504) 5 Mb
+--- >>> FGEMAX.inc(4) 5 Mb
+--- >> bb4datainc.inc(510) 5 Mb
+--- >>> GMINF.inc(5) 5 Mb
+--- >> bb4datainc.inc(516) 5 Mb
+--- >>> GMAXF.inc(22) 5 Mb
+--- >> bb4datainc.inc(522) 5 Mb
+--- >>> GEQF.inc(45) 5 Mb
+--- >> bb4datainc.inc(527) 5 Mb
+--- >>> GMAXFS.inc(39) 5 Mb
+--- >> bb4datainc.inc(532) 5 Mb
+--- >>> WTRRSFLH.inc(14) 5 Mb
+--- >> bb4datainc.inc(537) 5 Mb
+--- >>> WTRRRFLH.inc(15) 5 Mb
+--- >> bb4datainc.inc(543) 5 Mb
+--- >>> WNDFLH.inc(51) 5 Mb
+--- >> bb4datainc.inc(546) 5 Mb
+--- >>> wndflhadditions.inc(15) 5 Mb
+--- >> bb4datainc.inc(551) 5 Mb
+--- >>> SOLEFLH.inc(42) 5 Mb
+--- >> bb4datainc.inc(558) 5 Mb
+--- >>> SOLHFLH.inc(34) 5 Mb
+--- >> bb4datainc.inc(561) 5 Mb
+--- >>> solhflhadditions.inc(13) 5 Mb
+--- >> bb4datainc.inc(566) 5 Mb
+--- >>> WAVEFLH.inc(14) 5 Mb
+--- >> bb4datainc.inc(571) 5 Mb
+--- >>> HYRSDATA.inc(25) 5 Mb
+--- >> bb4datainc.inc(576) 5 Mb
+--- >>> DISCOUNTRATE.inc(2) 5 Mb
+--- >> bb4datainc.inc(581) 5 Mb
+--- >>> LIFETIME_X.inc(2) 5 Mb
+--- >> bb4datainc.inc(585) 5 Mb
+--- >>> ANNUITYCG.inc(1236) 5 Mb
+--- >> bb4datainc.inc(589) 5 Mb
+--- >>> annuitycgadditions.inc(3) 5 Mb
+--- >>>> hydrogen_annuitycgadditions.inc(3) 5 Mb
+--- >>>>> HYDROGEN_ANNUITYCG.inc(39) 5 Mb
+--- >>>> hydrogen_annuitycgadditions.inc(4) 5 Mb
+--- >>> annuitycgadditions.inc(3) 5 Mb
+--- >> bb4datainc.inc(593) 5 Mb
+--- >>> ANNUITYCX.inc(4) 5 Mb
+--- >> bb4datainc.inc(598) 5 Mb
+--- >>> GINVCOST.inc(3) 5 Mb
+--- >> bb4datainc.inc(603) 5 Mb
+--- >>> GOMVCOSTO.inc(6) 5 Mb
+--- >> bb4datainc.inc(608) 5 Mb
+--- >>> GOMVCOSTIN.inc(6) 5 Mb
+--- >> bb4datainc.inc(613) 5 Mb
+--- >>> GOMFCOST.inc(10) 5 Mb
+--- >> bb4datainc.inc(618) 5 Mb
+--- >>> GEFFRATE.inc(5) 5 Mb
+--- >> bb4datainc.inc(623) 5 Mb
+--- >>> DEFP_BASE.inc(10) 5 Mb
+--- >> bb4datainc.inc(628) 5 Mb
+--- >>> DHFP_BASE.inc(35) 5 Mb
+--- >> bb4datainc.inc(633) 5 Mb
+--- >>> GKF_LO.inc(4) 5 Mb
+--- >> bb4datainc.inc(646) 5 Mb
+--- >>> DE.inc(58) 5 Mb
+--- >> bb4datainc.inc(649) 5 Mb
+--- >>> deadditions.inc(17) 5 Mb
+--- >> bb4datainc.inc(657) 5 Mb
+--- >>> DH.inc(158) 5 Mb
+--- >> bb4datainc.inc(660) 5 Mb
+--- >>> dhadditions.inc(13) 5 Mb
+--- >> bb4datainc.inc(667) 5 Mb
+--- >>> XINVCOST.inc(66) 5 Mb
+--- >> bb4datainc.inc(670) 5 Mb
+--- >>> xinvcostadditions.inc(10) 5 Mb
+--- >> bb4datainc.inc(674) 5 Mb
+--- >>> XKFX.inc(58) 5 Mb
+--- >> bb4datainc.inc(679) 5 Mb
+--- >>> XCOST.inc(29) 5 Mb
+--- >> bb4datainc.inc(682) 5 Mb
+--- >>> xcostadditions.inc(10) 5 Mb
+--- >> bb4datainc.inc(686) 5 Mb
+--- >>> XLOSS.inc(40) 5 Mb
+--- >> bb4datainc.inc(689) 5 Mb
+--- >>> xlossadditions.inc(10) 5 Mb
+--- >> bb4datainc.inc(695) 5 Mb
+--- >>> XKRATE.inc(11) 5 Mb
+--- >> bb4datainc.inc(700) 5 Mb
+--- >>> XMAXINV.inc(55) 5 Mb
+--- >> bb4datainc.inc(709) 5 Mb
+--- >>> FUELPRICE.inc(67) 5 Mb
+--- >> bb4datainc.inc(712) 5 Mb
+--- >>> fuelpriceadditions.inc(1) 5 Mb
+--- >>>> hydrogen_fuelpriceadditions.inc(3) 5 Mb
+--- >>>>> HYDROGEN_FUELPRICE.inc(1) 5 Mb
+--- >>>> hydrogen_fuelpriceadditions.inc(4) 5 Mb
+--- >>> fuelpriceadditions.inc(2) 5 Mb
+--- >> bb4datainc.inc(719) 5 Mb
+--- >>> EMI_POL.inc(53) 5 Mb
+--- >> bb4datainc.inc(724) 5 Mb
+--- >>> EMI_POLNA.inc(8) 5 Mb
+--- >> bb4datainc.inc(734) 5 Mb
+--- >>> WEIGHT_S.inc(7) 5 Mb
+--- >> bb4datainc.inc(739) 5 Mb
+--- >>> WEIGHT_T.inc(8) 5 Mb
+--- >> bb4datainc.inc(744) 5 Mb
+--- >>> CHRONOHOUR.inc(4) 5 Mb
+--- >> bb4datainc.inc(749) 5 Mb
+--- >>> SSIZE.inc(3) 5 Mb
+--- >> bb4datainc.inc(755) 5 Mb
+--- >>> GKRATE.inc(93) 5 Mb
+--- >> bb4datainc.inc(760) 5 Mb
+--- >>> DE_VAR_T.inc(17494) 10 Mb
+--- >> bb4datainc.inc(763) 10 Mb
+--- >>> de_var_tadditions.inc(13) 10 Mb
+--- >> bb4datainc.inc(767) 10 Mb
+--- >>> DH_VAR_T.inc(8797) 13 Mb
+--- >> bb4datainc.inc(770) 13 Mb
+--- >>> dh_var_tadditions.inc(13) 13 Mb
+--- >> bb4datainc.inc(774) 13 Mb
+--- >>> WTRRSVAR_S.inc(51) 13 Mb
+--- >> bb4datainc.inc(779) 13 Mb
+--- >>> WTRRRVAR_T.inc(74) 13 Mb
+--- >> bb4datainc.inc(784) 13 Mb
+--- >>> WND_VAR_T.inc(8743) 19 Mb
+--- >>>> WND_VAR_T2.inc(8992) 20 Mb
+--- >>> WND_VAR_T.inc(8992) 20 Mb
+--- >> bb4datainc.inc(787) 20 Mb
+--- >>> wnd_var_tadditions.inc(15) 20 Mb
+--- >> bb4datainc.inc(791) 20 Mb
+--- >>> SOLE_VAR_T.inc(8748) 25 Mb
+--- >> bb4datainc.inc(796) 25 Mb
+--- >>> SOLH_VAR_T.inc(8758) 28 Mb
+--- >> bb4datainc.inc(799) 28 Mb
+--- >>> solh_var_tadditions.inc(13) 28 Mb
+--- >> bb4datainc.inc(803) 28 Mb
+--- >>> WAVE_VAR_T.inc(3) 28 Mb
+--- >> bb4datainc.inc(808) 28 Mb
+--- >>> X3FX.inc(29) 28 Mb
+--- >> bb4datainc.inc(813) 28 Mb
+--- >>> X3FX_VAR_T.inc(17494) 29 Mb
+--- >> bb4datainc.inc(818) 29 Mb
+--- >>> HYPPROFILS.inc(20) 29 Mb
+--- >> bb4datainc.inc(824) 29 Mb
+--- >>> YMODEL.inc(10) 29 Mb
+--- >> bb4datainc.inc(826) 29 Mb
+--- >>> YMODELDELTA.inc(11) 29 Mb
+--- >> bb4datainc.inc(840) 29 Mb
+--- >>> OMONEY.inc(3) 29 Mb
+--- >> bb4datainc.inc(845) 29 Mb
+--- >>> PENALTYQ.inc(5) 29 Mb
+--- >> bb4datainc.inc(850) 29 Mb
+--- >>> XES.inc(4) 29 Mb
+--- >> bb4datainc.inc(856) 29 Mb
+--- >>> pardeclare.inc(24) 29 Mb
+--- >>>> hydrogen_pardeclare.inc(58) 29 Mb
+--- >>> pardeclare.inc(31) 29 Mb
+--- >>>> DECOM_pardeclare.inc(2) 29 Mb
+--- >>> pardeclare.inc(34) 29 Mb
+--- >>>> CCS_pardeclare.inc(8) 29 Mb
+--- >>> pardeclare.inc(38) 29 Mb
+--- >> bb4datainc.inc(857) 29 Mb
+--- >>> pardefine.inc(26) 29 Mb
+--- >>>> hydrogen_pardefine.inc(3) 29 Mb
+--- >>>>> HYDROGEN_DH2.inc(25) 29 Mb
+--- >>>> hydrogen_pardefine.inc(8) 29 Mb
+--- >>>>> HYDROGEN_DH2_VAR_T.inc(5) 29 Mb
+--- >>>> hydrogen_pardefine.inc(13) 29 Mb
+--- >>>>> HYDROGEN_DISLOSS_H2.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(22) 29 Mb
+--- >>>>> HYDROGEN_DAC_DE.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(25) 29 Mb
+--- >>>>> HYDROGEN_DAC_DH.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(28) 29 Mb
+--- >>>>> HYDROGEN_METHANATION_DE.inc(5) 29 Mb
+--- >>>> hydrogen_pardefine.inc(31) 29 Mb
+--- >>>>> HYDROGEN_METHANATION_DH2.inc(6) 29 Mb
+--- >>>> hydrogen_pardefine.inc(34) 29 Mb
+--- >>>>> HYDROGEN_BIOGASUPGRADING_DE.inc(5) 29 Mb
+--- >>>> hydrogen_pardefine.inc(37) 29 Mb
+--- >>>>> HYDROGEN_XH2KFX.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(40) 29 Mb
+--- >>>>> HYDROGEN_XH2INVCOST.inc(96) 29 Mb
+--- >>>> hydrogen_pardefine.inc(43) 29 Mb
+--- >>>>> HYDROGEN_XH2INVCOST_NGTOH2.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(46) 29 Mb
+--- >>>>> HYDROGEN_XH2COST.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(49) 29 Mb
+--- >>>>> HYDROGEN_XH2LOSS.inc(79) 29 Mb
+--- >>>> hydrogen_pardefine.inc(52) 29 Mb
+--- >>>>> HYDROGEN_XH2KRATE.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(55) 29 Mb
+--- >>>>> HYDROGEN_ANNUITYCXH2.inc(4) 29 Mb
+--- >>>> hydrogen_pardefine.inc(58) 29 Mb
+--- >>>>> HYDROGEN_XH2MAXK_NGTOH2.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(61) 29 Mb
+--- >>>>> HYDROGEN_LIFETIME_XH2.inc(2) 29 Mb
+--- >>>> hydrogen_pardefine.inc(65) 29 Mb
+--- >>>>> HYDROGEN_XH2INVCOST_ES.inc(15) 29 Mb
+--- >>>> hydrogen_pardefine.inc(68) 29 Mb
+--- >>>>> HYDROGEN_XH2KN_ES.inc(14) 29 Mb
+--- >>>> hydrogen_pardefine.inc(70) 29 Mb
+--- >>> pardefine.inc(38) 29 Mb
+--- >>>> DECOM_pardefine.inc(3) 29 Mb
+--- >>> pardefine.inc(41) 29 Mb
+--- >>>> CCS_pardefine.inc(5) 29 Mb
+--- >>>>> CCS_CCS_DECO2COMP_G.inc(57) 29 Mb
+--- >>>> CCS_pardefine.inc(9) 29 Mb
+--- >>>>> CCS_CCS_CO2CAPTEFF_G.inc(8794) 29 Mb
+--- >>>> CCS_pardefine.inc(15) 29 Mb
+--- >>>>> CCS_CCS_TRANSPORTCOST.inc(3) 29 Mb
+--- >>>> CCS_pardefine.inc(16) 29 Mb
+--- >>> pardefine.inc(50) 29 Mb
+--- >> bb4datainc.inc(859) 29 Mb
+--- > Balmorelbb4.inc(475) 29 Mb
+--- >> isetdecdef.inc(13) 29 Mb
+--- >>> hydrogen_isetdecdef.inc(61) 29 Mb
+--- >> isetdecdef.inc(25) 29 Mb
+--- >>> DECOM_isetdecdef.inc(8) 29 Mb
+--- >> isetdecdef.inc(33) 29 Mb
+--- > Balmorelbb4.inc(926) 29 Mb
+--- >> ipardecdef.inc(11) 29 Mb
+--- >>> hydrogen_ipardecdef.inc(106) 29 Mb
+--- >> ipardecdef.inc(21) 29 Mb
+--- >>> DECOM_ipardecdef.inc(93) 29 Mb
+--- >> ipardecdef.inc(26) 29 Mb
+--- > Balmorelbb4.inc(1041) 29 Mb 1 Error
+*** Error 282 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Unable to open include file
+       Hint: Does the filename need to be quoted?
+--- > Balmorelbb4.inc(1046) 29 Mb
+--- >> error2.inc(237) 29 Mb 2 Errors
+*** Error 140 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\logerror\logerinc\error2.inc
+    Unknown symbol
+--- >> error2.inc(1119) 29 Mb
+--- > Balmorelbb4.inc(1077) 29 Mb
+--- >> reducecard.inc(4) 29 Mb
+--- > Balmorelbb4.inc(1179) 29 Mb
+--- >> vardeclare.inc(17) 29 Mb
+--- >>> hydrogen_vardeclare.inc(21) 29 Mb
+--- >> vardeclare.inc(29) 29 Mb
+--- >>> DECOM_vardeclare.inc(20) 29 Mb
+--- >> vardeclare.inc(43) 29 Mb
+--- > Balmorelbb4.inc(1391) 29 Mb
+--- >> qobj.inc(19) 29 Mb
+--- >>> hydrogen_qobj.inc(88) 29 Mb
+--- >> qobj.inc(31) 29 Mb
+--- >>> DECOM_qobj.inc(10) 29 Mb
+--- >> qobj.inc(33) 29 Mb
+--- >>> CCS_qobj.inc(10) 29 Mb
+--- >> qobj.inc(42) 29 Mb
+--- > Balmorelbb4.inc(1419) 29 Mb
+--- >> qeeq.inc(11) 29 Mb
+--- >>> hydrogen_qeeq.inc(14) 29 Mb
+--- >> qeeq.inc(21) 29 Mb
+--- >>> CCS_qeeq.inc(7) 29 Mb
+--- >> qeeq.inc(29) 29 Mb
+--- > Balmorelbb4.inc(1436) 29 Mb
+--- >> qheq.inc(15) 29 Mb
+--- >>> hydrogen_qheq.inc(7) 29 Mb
+--- >> qheq.inc(24) 29 Mb
+--- > Balmorelbb4.inc(1468) 29 Mb
+--- >> qgfeq.inc(16) 29 Mb
+--- >>> hydrogen_qgfeq.inc(6) 29 Mb
+--- >> qgfeq.inc(24) 29 Mb
+--- > Balmorelbb4.inc(1489) 29 Mb
+--- >> qgcbgbprbypass2.inc(12) 29 Mb
+--- > Balmorelbb4.inc(1517) 29 Mb
+--- >> qgcvgext.inc(12) 29 Mb
+--- > Balmorelbb4.inc(1538) 29 Mb
+--- >> qgcvgextbypass1.inc(12) 29 Mb
+--- > Balmorelbb4.inc(1547) 29 Mb
+--- >> qgfeqextbypass1.inc(10) 29 Mb
+--- > Balmorelbb4.inc(1555) 29 Mb
+--- >> qgfeqextbypass2.inc(10) 29 Mb
+--- > Balmorelbb4.inc(1564) 29 Mb
+--- >> qggetoh.inc(4) 29 Mb
+--- > Balmorelbb4.inc(1590) 29 Mb
+--- >> qhyrsseq.inc(10) 29 Mb
+--- > Balmorelbb4.inc(1601) 29 Mb
+--- >> qhyrsminvol.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1613) 29 Mb
+--- >> qhyrsmaxvol.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1629) 29 Mb
+--- >> qhymaxg.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1643) 29 Mb
+--- >> qestovolt.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1656) 29 Mb
+--- >> qestovolts.inc(11) 29 Mb
+--- > Balmorelbb4.inc(1666) 29 Mb
+--- >> qhstovolt.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1679) 29 Mb
+--- >> qhstovolts.inc(10) 29 Mb
+--- > Balmorelbb4.inc(1839) 29 Mb
+--- >> qkefuelc.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1850) 29 Mb
+--- >> qkefuelr.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1861) 29 Mb
+--- >> qkefuela.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1914) 29 Mb
+--- >> qgeqcf.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1932) 29 Mb
+--- >> qgeqrf.inc(8) 29 Mb
+--- > Balmorelbb4.inc(1949) 29 Mb
+--- >> qgeqaf.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2072) 29 Mb
+--- >> qktechgroupc.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2083) 29 Mb
+--- >> qktechgroupr.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2094) 29 Mb
+--- >> qktechgroupa.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2147) 29 Mb
+--- >> qxk_up.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2165) 29 Mb
+--- >> qxknaccumnet.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2183) 29 Mb
+--- >> qlimco2c.inc(5) 29 Mb
+--- >>> CCS_qlimco2c.inc(5) 29 Mb
+--- >> qlimco2c.inc(10) 29 Mb
+--- > Balmorelbb4.inc(2202) 29 Mb
+--- >> qlimco2na.inc(5) 29 Mb
+--- >>> CCS_qlimco2na.inc(5) 29 Mb
+--- >> qlimco2na.inc(10) 29 Mb
+--- > Balmorelbb4.inc(2236) 29 Mb
+--- >> qgknaccumnet.inc(3) 29 Mb
+--- >>> DECOM_qgknaccumnet.inc(6) 29 Mb
+--- >> qgknaccumnet.inc(9) 29 Mb
+--- > Balmorelbb4.inc(2261) 29 Mb
+--- >> qgke_up.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2271) 29 Mb
+--- >> qgkh_up.inc(8) 29 Mb
+--- > Balmorelbb4.inc(2382) 29 Mb
+--- >> eqndecdef.inc(24) 29 Mb
+--- >>> hydrogen_eqndecdef.inc(61) 29 Mb
+--- >>>> qhydrogen_eq.inc(10) 29 Mb
+--- >>> hydrogen_eqndecdef.inc(81) 29 Mb
+--- >>>> qhydrogen_eq_area.inc(8) 29 Mb
+--- >>> hydrogen_eqndecdef.inc(102) 29 Mb
+--- >>>> qhydrogen_stovol.inc(10) 29 Mb
+--- >>> hydrogen_eqndecdef.inc(167) 29 Mb
+--- >>>> qbiomethane_stovolts.inc(7) 29 Mb
+--- >>> hydrogen_eqndecdef.inc(257) 29 Mb
+--- >> eqndecdef.inc(32) 29 Mb
+--- >>> DECOM_eqndecdef.inc(68) 29 Mb
+--- >> eqndecdef.inc(41) 29 Mb
+--- > Balmorelbb4.inc(2534) 29 Mb
+--- >> balbase4.inc(10) 29 Mb
+--- >>> hydrogen_balbase4.inc(28) 29 Mb
+--- >> balbase4.inc(21) 29 Mb
+--- >>> DECOM_balbase4.inc(21) 29 Mb
+--- >> balbase4.inc(30) 29 Mb
+--- > Balmorelbb4.inc(2554) 29 Mb
+--- >> error2.inc(15) 29 Mb
+--- > Balmorelbb4.inc(2555) 29 Mb
+--- >> errorBB4.inc(62) 29 Mb
+--- > Balmorelbb4.inc(2582) 29 Mb
+--- >> BB4overview.inc(114) 29 Mb
+--- > Balmorelbb4.inc(2587) 29 Mb
+--- >> Balmorelbb4.sim(223) 29 Mb
+--- >>> sim.inc(24) 29 Mb
+--- >>>> DECOM_sim.inc(6) 29 Mb
+--- >>> sim.inc(27) 29 Mb
+--- >>>> hydrogen_sim.inc(23) 29 Mb
+--- >>> sim.inc(30) 29 Mb
+--- >> Balmorelbb4.sim(224) 29 Mb
+--- >>> varloupfx.inc(10) 29 Mb
+--- >> Balmorelbb4.sim(263) 29 Mb 3 Errors
+*** Error 257 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.sim
+    Solve statement not checked because of previous errors
+--- >> Balmorelbb4.sim(277) 29 Mb
+--- >>> solveend.inc(18) 29 Mb
+--- >> Balmorelbb4.sim(282) 29 Mb
+--- >>> balbase4.mss(102) 29 Mb 4 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\logerror\logerinc\balbase4.mss
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>> balbase4.mss(120) 29 Mb
+--- >> Balmorelbb4.sim(317) 29 Mb
+--- >>> errorBB4.inc(62) 29 Mb
+--- >> Balmorelbb4.sim(340) 29 Mb 5 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.sim
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >> Balmorelbb4.sim(344) 29 Mb
+--- >>> varassign.inc(4) 29 Mb
+--- >>>> DECOM_varassign.inc(8) 29 Mb 6 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(9) 29 Mb 7 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(10) 29 Mb 8 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(14) 29 Mb 9 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(15) 29 Mb 10 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(16) 29 Mb 11 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\DECOM\DECOM_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> DECOM_varassign.inc(17) 29 Mb
+--- >>> varassign.inc(6) 29 Mb
+--- >>>> hydrogen_varassign.inc(3) 29 Mb 12 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\hydrogen\bb4\hydrogen_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> hydrogen_varassign.inc(4) 29 Mb 13 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\hydrogen\bb4\hydrogen_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> hydrogen_varassign.inc(5) 29 Mb 14 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\hydrogen\bb4\hydrogen_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> hydrogen_varassign.inc(6) 29 Mb 15 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\hydrogen\bb4\hydrogen_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>>> hydrogen_varassign.inc(7) 29 Mb 16 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\addons\hydrogen\bb4\hydrogen_varassign.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- >>> varassign.inc(7) 29 Mb
+--- >> Balmorelbb4.sim(367) 29 Mb
+--- > Balmorelbb4.inc(2604) 29 Mb 17 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2605) 29 Mb 18 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2660) 29 Mb 19 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2663) 29 Mb 20 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2666) 29 Mb 21 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2669) 29 Mb 22 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2729) 29 Mb 23 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2781) 29 Mb 24 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2791) 29 Mb 25 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2792) 29 Mb 26 Errors
+*** Error 141 in D:\DTU DOCs\LargeScale\Exercises\day_2\BalmorelSimpleModel\Balmorel\ccs_balmorel_project\examples\Balmorel\base\model\Balmorelbb4.inc
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- > Balmorelbb4.inc(2852) 29 Mb
+--- Balmorel.gms(210) 29 Mb 26 Errors
+*** Status: Compilation error(s)
+--- Job Balmorel.gms Stop 06/18/26 17:12:26 elapsed 0:00:01.304
