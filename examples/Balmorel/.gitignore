@@ -16,5 +16,14 @@
 **/*.cmd
 **/output/economic/*.*
 /base/bui/gamsscr/*.*
-
+**/*.gdx
+# GAMS / Balmorel generated outputs
+*.gdx
+*.lst
+*.log
+*.put
+*.pf
+*.g00
+*.lxi
+*.~gm
 

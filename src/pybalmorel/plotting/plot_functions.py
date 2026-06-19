@@ -3,17 +3,14 @@
 ### ------------------------------- ###
 
 import os
-import copy
-import gams
 import pandas as pd
 import numpy as np
 from typing import Union
-from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
 from ..formatting import balmorel_colours
-import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+from typing import Tuple, List
+import matplotlib.patches as mpatches
 
 #%% ------------------------------- ###
 ###       1. Bar chart function     ###
@@ -827,62 +824,62 @@ def plot_capacity_pie_by_scenario(
     return fig, axes
 
 
-def create_balmorel_datetime_df(
-    year: int,
-    n_seasons: int = 52,
-    season_col: str = "Season",
-    time_col: str = "Time",
-):
-    """
-    Create a Balmorel-like SSS/TTT datetime mapping.
+# def create_balmorel_datetime_df(
+#     year: int,
+#     n_seasons: int = 52,
+#     season_col: str = "Season",
+#     time_col: str = "Time",
+# ):
+#     """
+#     Create a Balmorel-like SSS/TTT datetime mapping.
 
-    Assumes:
-        Season values look like S01, S02, ...
-        Time values look like T001, T002, ...
-    """
+#     Assumes:
+#         Season values look like S01, S02, ...
+#         Time values look like T001, T002, ...
+#     """
 
-    datetime_index = pd.date_range(
-        start=f"{year}-01-01 00:00:00",
-        end=f"{year}-12-31 23:00:00",
-        freq="h",
-    )
+#     datetime_index = pd.date_range(
+#         start=f"{year}-01-01 00:00:00",
+#         end=f"{year}-12-31 23:00:00",
+#         freq="h",
+#     )
 
-    time_df = pd.DataFrame({"DATETIME": datetime_index})
+#     time_df = pd.DataFrame({"DATETIME": datetime_index})
 
-    time_df["Year"] = time_df["DATETIME"].dt.year
-    time_df["Month"] = time_df["DATETIME"].dt.month
-    time_df["Day"] = time_df["DATETIME"].dt.day
-    time_df["Hour"] = time_df["DATETIME"].dt.hour + 1
-    time_df["HourOfYear"] = np.arange(1, len(time_df) + 1)
+#     time_df["Year"] = time_df["DATETIME"].dt.year
+#     time_df["Month"] = time_df["DATETIME"].dt.month
+#     time_df["Day"] = time_df["DATETIME"].dt.day
+#     time_df["Hour"] = time_df["DATETIME"].dt.hour + 1
+#     time_df["HourOfYear"] = np.arange(1, len(time_df) + 1)
 
-    time_df["Season_num"] = (
-        ((time_df["HourOfYear"] - 1) * n_seasons // len(time_df)) + 1
-    )
+#     time_df["Season_num"] = (
+#         ((time_df["HourOfYear"] - 1) * n_seasons // len(time_df)) + 1
+#     )
 
-    time_df["Time_num"] = (
-        time_df
-        .groupby("Season_num")
-        .cumcount()
-        + 1
-    )
+#     time_df["Time_num"] = (
+#         time_df
+#         .groupby("Season_num")
+#         .cumcount()
+#         + 1
+#     )
 
-    time_df[season_col] = "S" + time_df["Season_num"].astype(str).str.zfill(2)
-    time_df[time_col] = "T" + time_df["Time_num"].astype(str).str.zfill(3)
+#     time_df[season_col] = "S" + time_df["Season_num"].astype(str).str.zfill(2)
+#     time_df[time_col] = "T" + time_df["Time_num"].astype(str).str.zfill(3)
 
-    return time_df[
-        [
-            "DATETIME",
-            "Year",
-            "Month",
-            "Day",
-            "Hour",
-            "HourOfYear",
-            "Season_num",
-            "Time_num",
-            season_col,
-            time_col,
-        ]
-    ]
+#     return time_df[
+#         [
+#             "DATETIME",
+#             "Year",
+#             "Month",
+#             "Day",
+#             "Hour",
+#             "HourOfYear",
+#             "Season_num",
+#             "Time_num",
+#             season_col,
+#             time_col,
+#         ]
+#     ]
 
 
 def plot_generation_stacked_by_technology_per_scenario(
@@ -949,22 +946,22 @@ def plot_generation_stacked_by_technology_per_scenario(
     if df.empty:
         raise ValueError("No data available after filtering.")
 
-    # Create full Balmorel time mapping
-    time_df = create_balmorel_datetime_df(
-        year=year,
-        n_seasons=n_seasons,
-        season_col="Season",
-        time_col="Time",
-    )
+    # # Create full Balmorel time mapping
+    # time_df = create_balmorel_datetime_df(
+    #     year=year,
+    #     n_seasons=n_seasons,
+    #     season_col="Season",
+    #     time_col="Time",
+    # )
 
-    full_datetime_axis = time_df[["DATETIME", "Season", "Time"]].copy()
+    # full_datetime_axis = time_df[["DATETIME", "Season", "Time"]].copy()
 
-    # Merge DATETIME into generation dataframe
-    df = df.merge(
-        time_df[["DATETIME", "Season", "Time"]],
-        on=["Season", "Time"],
-        how="left",
-    )
+    # # Merge DATETIME into generation dataframe
+    # df = df.merge(
+    #     time_df[["DATETIME", "Season", "Time"]],
+    #     on=["Season", "Time"],
+    #     how="left",
+    # )
 
     # Remove rows that did not match the Balmorel time structure
     df = df.dropna(subset=["DATETIME"])
@@ -1003,17 +1000,17 @@ def plot_generation_stacked_by_technology_per_scenario(
             .reset_index()
         )
 
-        # Fill the whole year using the full Balmorel datetime axis
-        pivot_df = (
-            full_datetime_axis[["DATETIME"]]
-            .merge(
-                pivot_df,
-                on="DATETIME",
-                how="left",
-            )
-            .sort_values("DATETIME")
-            .fillna(0)
-        )
+        # # Fill the whole year using the full Balmorel datetime axis
+        # pivot_df = (
+        #     full_datetime_axis[["DATETIME"]]
+        #     .merge(
+        #         pivot_df,
+        #         on="DATETIME",
+        #         how="left",
+        #     )
+        #     .sort_values("DATETIME")
+        #     .fillna(0)
+        # )
 
         value_df = pivot_df.drop(columns=["DATETIME"], errors="ignore")
 
@@ -1112,3 +1109,100 @@ def plot_generation_stacked_by_technology_per_scenario(
         figures[scenario] = (fig, ax)
 
     return figures
+
+
+generation_tech_color = {
+    "HYDRO-RESERVOIRS": "#33b1ff",
+    "HYDRO-RUN-OF-RIVER": "#4589ff",
+    "HYDRO": "#33b1ff",
+    "WIND-ONSHORE": "#006460",
+    "BOILERS": "#8B008B",
+    "ELECT-TO-HEAT": "#FFA500",
+    "INTERSEASONAL-HEAT-STORAGE": "#FFD700",
+    "CHP-BACK-PRESSURE": "#E5D8D8",
+    "SMR-CCS": "#00BFFF",
+    "SMR": "#d1b9b9",
+    "INTRASEASONAL-HEAT-STORAGE": "#00FFFF",
+    "CONDENSING": "#8a3ffc",
+    "SOLAR-HEATING": "#FF69B4",
+    "CHP-EXTRACTION": "#ff7eb6",
+    "SOLAR-PV": "#d2a106",
+    "WIND-OFFSHORE": "#08bdba",
+    "INTRASEASONAL-ELECT-STORAGE": "#ba4e00",
+    "ELECTROLYZER": "#ADD8E6",
+    "H2-STORAGE": "#FFC0CB",
+    "FUELCELL": "#d4bbff",
+    "CHP": "#E5D8D8",
+}
+
+
+def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = None, scenarios: list = None, min_capacity: float = 0.0):
+    df = capacity_df.copy()
+    df["Scenario_clean"] = df["Scenario"].astype(str).str.strip()
+    df["Year"] = df["Year"].astype(int)
+    if year is not None:
+        df = df[df["Year"] == int(year)]
+    if scenarios is not None:
+        keys = [str(s).strip() for s in scenarios]
+        df = df[df["Scenario_clean"].isin(keys)]
+
+    agg = df.groupby(["Scenario_clean", "Technology"])["Value"].sum().reset_index()
+    agg = agg[agg["Value"] > 0]
+    pivot = agg.pivot_table(index="Scenario_clean", columns="Technology", values="Value", aggfunc="sum", fill_value=0)
+    if scenarios is not None:
+        pivot = pivot.reindex([str(s).strip() for s in scenarios])
+
+    # Identify renewables and storage technology columns
+    renewable_keywords = ['wind','solar','pv','run','bio','biomass','geothermal']
+    storage_keywords = ['storage','reservoir','interseasonal']
+
+    renewable_cols = [c for c in pivot.columns if any(k in str(c).lower() for k in renewable_keywords)]
+    storage_cols = [c for c in pivot.columns if any(k in str(c).lower() for k in storage_keywords)]
+
+    # Fallback: if no explicit storage or renewables found, try some common names
+    if not renewable_cols:
+        renewable_cols = [c for c in pivot.columns if 'wind' in str(c).lower() or 'solar' in str(c).lower() or 'pv' in str(c).lower()]
+    if not storage_cols:
+        storage_cols = [c for c in pivot.columns if 'storage' in str(c).lower() or 'reservoir' in str(c).lower()]
+
+    # Create figure
+    n = len(pivot)
+    fig, ax = plt.subplots(figsize=(max(8, n*1.4), 6))
+    inds = np.arange(n)
+    width = 0.35
+
+    # Plot stacked bars for each scenario
+    for idx, sc in enumerate(pivot.index):
+        # Renewables stacked
+        bottom_r = 0
+        for tech in renewable_cols:
+            val = pivot.at[sc, tech] if tech in pivot.columns else 0
+            if val > 0:
+                color = generation_tech_color.get(str(tech).strip().upper(), 'grey')
+                ax.bar(inds[idx] - width/2, val, width, bottom=bottom_r, color=color)
+                bottom_r += val
+        # Storage stacked
+        bottom_s = 0
+        for tech in storage_cols:
+            val = pivot.at[sc, tech] if tech in pivot.columns else 0
+            if val > 0:
+                color = generation_tech_color.get(str(tech).strip().upper(), 'grey')
+                ax.bar(inds[idx] + width/2, val, width, bottom=bottom_s, color=color)
+                bottom_s += val
+
+    ax.set_xticks(inds)
+    ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha='right')
+    ax.set_ylabel('Installed (GW/GWh)')
+    ax.set_title('Renewable Capacity vs Storage Energy by Scenario' + (f' - {year}' if year is not None else ''))
+    ax.grid(True, axis='y', alpha=0.3)
+
+    # Build legend with technology patches
+    patches = []
+    for tech in dict.fromkeys(list(renewable_cols) + list(storage_cols)):
+        color = generation_tech_color.get(str(tech).strip().upper(), 'grey')
+        patches.append(mpatches.Patch(color=color, label=tech))
+    if patches:
+        ax.legend(handles=patches, title='Technologies', bbox_to_anchor=(1.02,1), loc='upper left', fontsize=8)
+
+    plt.tight_layout()
+    return fig, ax
