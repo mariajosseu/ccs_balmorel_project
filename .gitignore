@@ -4,7 +4,6 @@ src/*
 !src/pybalmorel
 examples/files/DE.inc
 __pycache__
-output
 config
 build
 _build
