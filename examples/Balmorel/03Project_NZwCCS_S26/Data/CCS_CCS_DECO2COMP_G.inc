@@ -56,4 +56,4 @@ GNR_ST_NGASCCS_BP_E-7_MS-15-MW_Y-2020                                           
 $ifi %HYDROGEN%==yes GNR_STEAM-REFORMING-CCS_E-70_Y-2020                                                                                                                          0.371  
 /;                                                                                                                                                                                       
 
-CCS_DECO2COMP_G(GGG)$CCS_DECO2COMP_G(GGG)= 0.111
+CCS_DECO2COMP_G(GGG)$CCS_DECO2COMP_G(GGG)= 0.778
