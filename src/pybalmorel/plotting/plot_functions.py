@@ -1182,28 +1182,22 @@ def plot_capacity_by_fuel(
 
     inds = np.arange(n)
     width = 0.55
+    fuel_colors = [balmorel_colours.get(str(fuel).upper(), "#B0B0B0") for fuel in pivot.columns]
 
     for idx, sc in enumerate(pivot.index):
         bottom = 0
 
-        for fuel in pivot.columns:
+        for fuel, color in zip(pivot.columns, fuel_colors):
             val = pivot.at[sc, fuel]
 
-            if val > 0:
-                color = generation_fuel_color.get(
-                    str(fuel).strip().upper(),
-                    "grey"
-                )
-
-                ax.bar(
-                    inds[idx],
-                    val,
-                    width,
-                    bottom=bottom,
-                    color=color,
-                )
-
-                bottom += val
+            ax.bar(
+                inds[idx],
+                val,
+                width,
+                bottom=bottom,
+                color=color,
+            )
+            bottom += val
 
     ax.set_xticks(inds)
     ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha="right")
@@ -1212,21 +1206,14 @@ def plot_capacity_by_fuel(
     ax.set_title("Installed Capacity by Fuel" + (f" - {year}" if year is not None else ""))
     ax.grid(True, axis="y", alpha=0.3)
 
-    patches = []
-    for fuel in pivot.columns:
-        color = generation_fuel_color.get(str(fuel).strip().upper(), "grey")
-        patches.append(mpatches.Patch(color=color, label=fuel))
+    legend_handles = [
+        mpatches.Patch(color=color, label=str(fuel))
+        for fuel, color in zip(pivot.columns, fuel_colors)
+    ]
+    if legend_handles:
+        ax.legend(handles=legend_handles, title="Fuel", bbox_to_anchor=(1.02, 1), loc="upper left")
 
-    if patches:
-        ax.legend(
-            handles=patches,
-            title="Fuel",
-            bbox_to_anchor=(1.02, 1),
-            loc="upper left",
-            fontsize=8,
-        )
-
-    plt.tight_layout()
+    plt.tight_layout(rect=(0, 0, 0.84, 1))
     return fig, ax
 
 def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = None, scenarios: list = None, min_capacity: float = 0.0):
@@ -1433,3 +1420,4 @@ def plot_ccs_vs_renewables_by_co2price(
 
     plt.tight_layout()
     return fig, ax
+# %%
