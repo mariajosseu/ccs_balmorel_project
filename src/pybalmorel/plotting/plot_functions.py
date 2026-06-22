@@ -1202,7 +1202,7 @@ def plot_capacity_by_fuel(
     ax.set_xticks(inds)
     ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha="right")
 
-    ax.set_ylabel("Installed capacity")
+    ax.set_ylabel("Installed capacity (GW)")
     ax.set_title("Installed Capacity by Fuel" + (f" - {year}" if year is not None else ""))
     ax.grid(True, axis="y", alpha=0.3)
 
@@ -1272,7 +1272,7 @@ def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = No
 
     ax.set_xticks(inds)
     ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha='right')
-    ax.set_ylabel('Installed (GW/GWh)')
+    ax.set_ylabel('Installed capacity (GW)')
     ax.set_title('Renewable Capacity vs Storage Energy by Scenario' + (f' - {year}' if year is not None else ''))
     ax.grid(True, axis='y', alpha=0.3)
 
