@@ -53,9 +53,11 @@ GNR_ST_NGASCCS_CND_E-47_LS-400-MW_Y-2020
 GNR_ST_NGASCCS_EXT_E-47_LS-400-MW_Y-2020                   
 GNR_ST_NGASCCS_BP_E-7_MS-15-MW_Y-2020
 
-BIOMASS_CHP_W_CCS                                              
-GNR_ST_WOODPEL_BP_E-33_LS-800-MW-FEED_Y-2050_CCS                                        
-GNR_BO_WOODCHI_E-115_LS-7-MW_Y-2050_CCS                
+BIOMASS_CHP_W_CCS
+BIOMASS_CHP_W_CCS2
+BIOMASS_CHP_W_CCS3                                              
+*GNR_ST_WOODPEL_BP_E-33_LS-800-MW-FEED_Y-2050_CCS                                        
+*GNR_BO_WOODCHI_E-115_LS-7-MW_Y-2050_CCS                
 $ifi %HYDROGEN%==yes GNR_STEAM-REFORMING-CCS_E-70_Y-2020   
 /;                                                         
                                                            

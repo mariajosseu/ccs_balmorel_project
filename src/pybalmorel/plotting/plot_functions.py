@@ -1206,3 +1206,137 @@ def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = No
 
     plt.tight_layout()
     return fig, ax
+
+
+def plot_ccs_vs_renewables_by_co2price(
+    capacity_df: pd.DataFrame,
+    co2_prices: dict,
+    year: int = None,
+    scenarios: list = None,
+    ccs_generators: list = None,
+):
+    """
+    Plot CCS capacity vs Renewable capacity as a function of CO2 price.
+    
+    Args:
+        capacity_df (pd.DataFrame): Installed capacity results dataframe.
+        co2_prices (dict): Dictionary mapping scenario names to CO2 prices.
+                           e.g. {'Net-Zero w CCS 87': 87, 'Net-Zero w CCS 174': 174, 'Net-Zero w CCS 250': 250}
+        year (int, optional): Year to filter on.
+        scenarios (list, optional): Scenarios to include (must match keys in co2_prices).
+        ccs_generators (list, optional): Generator names from CCS_CCS_G to count as CCS capacity.
+    
+    Returns:
+        tuple[plt.Figure, plt.Axes]: The figure and axes.
+    """
+    
+    renewable_keywords = ['wind', 'solar', 'pv', 'hydro-run']
+
+    df = capacity_df.copy()
+    df["Scenario_clean"] = df["Scenario"].astype(str).str.strip()
+    df["Year"] = df["Year"].astype(int)
+
+    if year is not None:
+        df = df[df["Year"] == int(year)]
+
+    if scenarios is not None:
+        df = df[df["Scenario_clean"].isin([str(s).strip() for s in scenarios])]
+
+    df = df[df["Value"] > 0]
+
+    if ccs_generators is None:
+        raise ValueError("ccs_generators must be provided so CCS can be filtered by Generation.")
+
+    if "Generation" not in df.columns:
+        raise ValueError("Column 'Generation' is required to filter CCS generators.")
+
+    ccs_generators_upper = {
+        str(generator).strip().upper()
+        for generator in ccs_generators
+        if str(generator).strip()
+    }
+
+    # Identify renewable and CCS columns per scenario
+    results = []
+    for scenario, group in df.groupby("Scenario_clean"):
+        if scenario not in co2_prices:
+            continue
+
+        renewable_cap = group[
+            group["Technology"].str.lower().str.contains('|'.join(renewable_keywords), na=False)
+        ]["Value"].sum()
+
+        ccs_cap = group[
+            group["Generation"].astype(str).str.strip().str.upper().isin(ccs_generators_upper)
+        ]["Value"].sum()
+
+        results.append({
+            "Scenario": scenario,
+            "CO2_price": co2_prices[scenario],
+            "Renewable_GW": renewable_cap,
+            "CCS_GW": ccs_cap,
+        })
+
+    if not results:
+        raise ValueError("No matching scenarios found in co2_prices dictionary.")
+
+    results_df = pd.DataFrame(results).sort_values("CO2_price")
+
+    # --- Plot ---
+    fig, ax = plt.subplots(figsize=(9, 6))
+
+    ax.plot(
+        results_df["CO2_price"],
+        results_df["Renewable_GW"],
+        marker='o',
+        linewidth=2,
+        markersize=8,
+        color="#d2a106",
+        label="Renewable Capacity (GW)",
+    )
+
+    ax.plot(
+        results_df["CO2_price"],
+        results_df["CCS_GW"],
+        marker='s',
+        linewidth=2,
+        markersize=8,
+        color="#ff7eb6",
+        label="CCS Capacity (GW)",
+        linestyle='--',
+    )
+
+    # Annotate scenario names on points
+    for _, row in results_df.iterrows():
+        ax.annotate(
+            row["Scenario"],
+            xy=(row["CO2_price"], row["Renewable_GW"]),
+            xytext=(5, 5),
+            textcoords="offset points",
+            fontsize=8,
+            color="#d2a106",
+        )
+        ax.annotate(
+            row["Scenario"],
+            xy=(row["CO2_price"], row["CCS_GW"]),
+            xytext=(5, -12),
+            textcoords="offset points",
+            fontsize=8,
+            color="#ff7eb6",
+        )
+
+
+    ax.set_xlabel("CO₂ Price ($/tCO₂)", fontsize=12)
+    ax.set_ylabel("Installed Capacity (GW)", fontsize=12)
+    ax.set_title(
+        f"CCS vs Renewable Capacity by CO₂ Price" + (f" — {year}" if year else ""),
+        fontsize=13,
+        fontweight="bold",
+    )
+    ax.set_xticks([87, 174, 250])
+    ax.set_xticklabels(["87\n(IEA Current\nPolicies)", "174\n(IEA Stated\nPolicies)", "250\n(IEA Net Zero)"])
+    ax.legend(fontsize=10)
+    ax.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    return fig, ax

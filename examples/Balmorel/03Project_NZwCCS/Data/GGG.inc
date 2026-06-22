@@ -1251,9 +1251,11 @@ ZIEL-2_ST_COAL_BP
 ZIEL-3_ST_NGAS_BP                             
 ZIEL-4_ST_COAL_BP
                           
-BIOMASS_CHP_W_CCS                                              
-GNR_ST_WOODPEL_BP_E-33_LS-800-MW-FEED_Y-2050_CCS                                          
-GNR_BO_WOODCHI_E-115_LS-7-MW_Y-2050_CCS                                        
+BIOMASS_CHP_W_CCS
+BIOMASS_CHP_W_CCS2
+BIOMASS_CHP_W_CCS3                                              
+*GNR_ST_WOODPEL_BP_E-33_LS-800-MW-FEED_Y-2050_CCS                                          
+*GNR_BO_WOODCHI_E-115_LS-7-MW_Y-2050_CCS                                        
                                               
                                               
                                               
