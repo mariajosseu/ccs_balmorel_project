@@ -1135,6 +1135,86 @@ generation_tech_color = {
     "CHP": "#E5D8D8",
 }
 
+def plot_capacity_by_fuel(
+    capacity_df: pd.DataFrame,
+    year: int = None,
+    scenarios: list = None,
+    min_capacity: float = 0.0,
+):
+    df = capacity_df.copy()
+
+    df["Scenario_clean"] = df["Scenario"].astype(str).str.strip()
+    df["Fuel"] = df["Fuel"].astype(str).str.strip()
+    df["Year"] = df["Year"].astype(int)
+    df["Value"] = pd.to_numeric(df["Value"], errors="coerce").fillna(0)
+
+    if year is not None:
+        df = df[df["Year"] == int(year)]
+
+    if scenarios is not None:
+        scenario_order = [str(s).strip() for s in scenarios]
+        df = df[df["Scenario_clean"].isin(scenario_order)]
+    else:
+        scenario_order = sorted(df["Scenario_clean"].unique())
+
+    agg = (
+        df.groupby(["Scenario_clean", "Fuel"], as_index=False)["Value"]
+        .sum()
+    )
+
+    agg = agg[agg["Value"] > min_capacity]
+
+    pivot = agg.pivot_table(
+        index="Scenario_clean",
+        columns="Fuel",
+        values="Value",
+        aggfunc="sum",
+        fill_value=0,
+    )
+
+    pivot = pivot.reindex(scenario_order).fillna(0)
+
+    # Remove fuels with zero total after filtering
+    pivot = pivot.loc[:, pivot.sum(axis=0) > 0]
+
+    n = len(pivot)
+    fig, ax = plt.subplots(figsize=(max(8, n * 1.4), 6))
+
+    inds = np.arange(n)
+    width = 0.55
+    fuel_colors = [balmorel_colours.get(str(fuel).upper(), "#B0B0B0") for fuel in pivot.columns]
+
+    for idx, sc in enumerate(pivot.index):
+        bottom = 0
+
+        for fuel, color in zip(pivot.columns, fuel_colors):
+            val = pivot.at[sc, fuel]
+
+            ax.bar(
+                inds[idx],
+                val,
+                width,
+                bottom=bottom,
+                color=color,
+            )
+            bottom += val
+
+    ax.set_xticks(inds)
+    ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha="right")
+
+    ax.set_ylabel("Installed capacity (GW)")
+    ax.set_title("Installed Capacity by Fuel" + (f" - {year}" if year is not None else ""))
+    ax.grid(True, axis="y", alpha=0.3)
+
+    legend_handles = [
+        mpatches.Patch(color=color, label=str(fuel))
+        for fuel, color in zip(pivot.columns, fuel_colors)
+    ]
+    if legend_handles:
+        ax.legend(handles=legend_handles, title="Fuel", bbox_to_anchor=(1.02, 1), loc="upper left")
+
+    plt.tight_layout(rect=(0, 0, 0.84, 1))
+    return fig, ax
 
 def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = None, scenarios: list = None, min_capacity: float = 0.0):
     df = capacity_df.copy()
@@ -1192,7 +1272,7 @@ def plot_renewables_vs_storage_by_tech(capacity_df: pd.DataFrame, year: int = No
 
     ax.set_xticks(inds)
     ax.set_xticklabels([str(s) for s in pivot.index], rotation=30, ha='right')
-    ax.set_ylabel('Installed (GW/GWh)')
+    ax.set_ylabel('Installed capacity (GW)')
     ax.set_title('Renewable Capacity vs Storage Energy by Scenario' + (f' - {year}' if year is not None else ''))
     ax.grid(True, axis='y', alpha=0.3)
 
@@ -1340,3 +1420,4 @@ def plot_ccs_vs_renewables_by_co2price(
 
     plt.tight_layout()
     return fig, ax
+# %%
