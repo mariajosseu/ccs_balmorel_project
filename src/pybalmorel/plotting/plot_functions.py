@@ -402,6 +402,182 @@ def plot_emissions_grid_by_year_and_scenario(
     return fig, axes
 
 
+def plot_emissions_stacked_by_scenario(
+    emissions_df: pd.DataFrame,
+    years: list = None,
+    scenarios: list = None,
+    min_label_width: float = 0.03,
+):
+    """
+    Plot emissions in one figure.
+
+    Each bar represents a scenario, stacked by fuel.
+    Positive emissions are plotted as positive stacked bars.
+    Negative emissions are plotted as negative red bars.
+    Fuel names are written inside each bar segment when there is enough space.
+
+    Args:
+        emissions_df (pd.DataFrame): Emissions results dataframe.
+            Expected columns: Scenario, Y, FFF, Value.
+        years (list, optional): Years to include. Defaults to all available.
+        scenarios (list, optional): Scenarios to include. Defaults to all available.
+        min_label_width (float, optional): Minimum relative segment size needed to show label.
+
+    Returns:
+        tuple[plt.Figure, plt.Axes]: Figure and axis.
+    """
+
+    df = emissions_df.copy()
+
+    # Clean types
+    df["Y"] = df["Y"].astype(str)
+    df["Scenario"] = df["Scenario"].astype(str).str.strip()
+    df["FFF"] = df["FFF"].astype(str).str.strip()
+
+    # Filter years
+    if years is None:
+        years = sorted(df["Y"].unique())
+    else:
+        years = [str(y) for y in years]
+        df = df[df["Y"].isin(years)]
+
+    # Filter scenarios
+    if scenarios is None:
+        scenarios = sorted(df["Scenario"].unique())
+    else:
+        scenarios = [str(s).strip() for s in scenarios]
+        df = df[df["Scenario"].isin(scenarios)]
+
+    # If more than one year is selected, combine scenario and year as x-axis category
+    if len(years) > 1:
+        df["Scenario_label"] = df["Scenario"] + "\n" + df["Y"]
+        scenario_labels = [
+            f"{scenario}\n{year}"
+            for scenario in scenarios
+            for year in years
+            if not df[(df["Scenario"] == scenario) & (df["Y"] == year)].empty
+        ]
+        x_col = "Scenario_label"
+    else:
+        df["Scenario_label"] = df["Scenario"]
+        scenario_labels = scenarios
+        x_col = "Scenario_label"
+
+    # Aggregate emissions by scenario/year and fuel
+    agg = (
+        df.groupby([x_col, "FFF"], as_index=False)["Value"]
+        .sum()
+    )
+
+    # Pivot to wide format
+    pivot = agg.pivot_table(
+        index=x_col,
+        columns="FFF",
+        values="Value",
+        fill_value=0,
+        aggfunc="sum",
+    )
+
+    # Preserve requested order
+    pivot = pivot.reindex(scenario_labels).dropna(how="all")
+
+    fuels = pivot.columns.tolist()
+    x = np.arange(len(pivot))
+
+    fig, ax = plt.subplots(figsize=(max(10, len(pivot) * 1.5), 7))
+
+    positive_bottom = np.zeros(len(pivot))
+    negative_bottom = np.zeros(len(pivot))
+
+    # Simple color maps
+    positive_colors = plt.cm.Greens(np.linspace(0.45, 0.85, len(fuels)))
+    negative_colors = plt.cm.Reds(np.linspace(0.45, 0.85, len(fuels)))
+
+    max_abs_value = max(abs(pivot.sum(axis=1)).max(), abs(pivot.values).max())
+
+    for k, fuel in enumerate(fuels):
+        values = pivot[fuel].values
+
+        positive_values = np.where(values > 0, values, 0)
+        negative_values = np.where(values < 0, values, 0)
+
+        # Positive stacked bars
+        pos_bars = ax.bar(
+            x,
+            positive_values,
+            bottom=positive_bottom,
+            label=fuel,
+            color=positive_colors[k],
+            edgecolor="white",
+            linewidth=0.5,
+        )
+
+        # Negative stacked bars
+        neg_bars = ax.bar(
+            x,
+            negative_values,
+            bottom=negative_bottom,
+            color=negative_colors[k],
+            edgecolor="white",
+            linewidth=0.5,
+        )
+
+        # Labels inside positive bars
+        for idx, value in enumerate(positive_values):
+            if value != 0 and abs(value) > min_label_width * max_abs_value:
+                ax.text(
+                    x[idx],
+                    positive_bottom[idx] + value / 2,
+                    fuel,
+                    ha="center",
+                    va="center",
+                    fontsize=8,
+                    rotation=90,
+                    color="black",
+                )
+
+        # Labels inside negative bars
+        for idx, value in enumerate(negative_values):
+            if value != 0 and abs(value) > min_label_width * max_abs_value:
+                ax.text(
+                    x[idx],
+                    negative_bottom[idx] + value / 2,
+                    fuel,
+                    ha="center",
+                    va="center",
+                    fontsize=8,
+                    rotation=90,
+                    color="black",
+                )
+
+        positive_bottom += positive_values
+        negative_bottom += negative_values
+
+    ax.axhline(0, color="black", linewidth=0.8)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(pivot.index, ha="right")
+
+    ax.set_ylabel("Emissions (kton)")
+    ax.set_title("Emissions by Scenario, Stacked by Fuel", fontweight="bold")
+
+    ax.grid(True, axis="y", alpha=0.3)
+
+    # Avoid duplicate legend entries
+    handles, labels = ax.get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    ax.legend(
+        by_label.values(),
+        by_label.keys(),
+        title="Fuel",
+        bbox_to_anchor=(1.02, 1),
+        loc="upper left",
+    )
+
+    plt.tight_layout()
+
+    return fig, ax
+
 def plot_capacity_pie_by_scenario(
     capacity_df: pd.DataFrame,
     year: int = None,
